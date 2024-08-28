@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="select.html">FAVORITE</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="populares">
+            <h1>REDES SOCIALES</h1>
+            <h2>rango de edades de las redes sociales mas utilizadas en 2024</h2>
+            <a href="#" onclick="selectSocial('Instagram', 'https://www.instagram.com')">Instagram</a>
+            <a href="#" onclick="selectSocial('Facebook', 'https://www.facebook.com')">Facebook</a>
+            <a href="#" onclick="selectSocial('Snapchat', 'https://www.snapchat.com')">Snapchat</a>
+            <a href="#" onclick="selectSocial('Pinterest', 'https://www.pinterest.com')">Pinterest</a>
+            <a href="#" onclick="selectSocial('TikTok', 'https://www.tiktok.com')">TikTok</a>
+            <a href="#" onclick="selectSocial('X', 'https://www.twitter.com')">X</a>
+            <a href="#" onclick="selectSocial('Telegram', 'https://www.telegram.com')">Telegram</a>
+        </div>
+    </div>
+
+    <script>
+        function selectSocial(name, url) {
+            localStorage.setItem("selectedSocialName", name);
+            localStorage.setItem("selectedSocialUrl", url);
+            window.location.href = "select.html"; // Redirige a select.html
+        }
+    </script>
+</body>
+
+</html>

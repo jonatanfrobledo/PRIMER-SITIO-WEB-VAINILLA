@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorita</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="select.html">FAVORITE</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div>
+            <h1>PÁGINA WEB SELECCIONADA</h1>
+            <h2 id="selectedSocialName">Selecciona una red social en la página principal</h2>
+            <p id="ageRange"></p>
+            <a id="siteLink" href="#" target="_blank">Ir al sitio web</a>
+        </div>
+    </div>
+
+    <script>
+        const ageData = {
+            'Instagram': '18-34 años',
+            'Facebook': '25-54 años',
+            'Snapchat': '13-29 años',
+            'Pinterest': '18-49 años',
+            'TikTok': '16-24 años',
+            'X': '18-34 años',
+            'Telegram': '18-50 años '
+        };
+
+        function updatePage() {
+            const selectedName = localStorage.getItem("selectedSocialName");
+            const selectedUrl = localStorage.getItem("selectedSocialUrl");
+            
+            if (selectedName && selectedUrl) {
+                document.getElementById("selectedSocialName").textContent = `Información de ${selectedName}`;
+                document.getElementById("ageRange").textContent = `Rango de edades: ${ageData[selectedName] || 'Información no disponible'}`;
+                document.getElementById("siteLink").href = selectedUrl;
+                document.getElementById("siteLink").textContent = `Ir al sitio web de ${selectedName}`;
+            } else {
+                document.getElementById("selectedSocialName").textContent = 'No se ha seleccionado ninguna red social.';
+                document.getElementById("ageRange").textContent = '';
+                document.getElementById("siteLink").style.display = 'none';
+            }
+        }
+
+        window.onload = updatePage;
+    </script>
+</body>
+
+</html>
